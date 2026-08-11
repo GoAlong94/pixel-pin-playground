@@ -39,7 +39,8 @@ const partsDatabase = {
   ]
 };
 
-export default function PartsPane() {
+// Export as named function
+export function PartsPane() {
   return (
     <div className="flex flex-col h-full bg-[#161b22] border-l border-zinc-800">
       <div className="p-4 border-b border-zinc-800 space-y-3 shrink-0">
@@ -88,3 +89,6 @@ export default function PartsPane() {
     </div>
   );
 }
+
+// Export as default as well to prevent import mismatches
+export default PartsPane;
