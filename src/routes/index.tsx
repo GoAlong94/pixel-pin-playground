@@ -77,8 +77,8 @@ function Workbench() {
       />
 
       <main className="min-h-0 flex-1">
-        <ResizablePanelGroup direction="horizontal" className="h-full">
-          <ResizablePanel defaultSize={32} minSize={18}>
+        <ResizablePanelGroup orientation="horizontal" className="h-full">
+          <ResizablePanel defaultSize="32" minSize="18">
             <EditorPane
               files={files}
               onFileChange={(name, next) =>
@@ -88,7 +88,7 @@ function Workbench() {
             />
           </ResizablePanel>
           <ResizableHandle className="w-px bg-border transition-colors hover:bg-primary" />
-          <ResizablePanel defaultSize={45} minSize={25}>
+          <ResizablePanel defaultSize="45" minSize="25">
             <CanvasPane
               placed={placed}
               setPlaced={setPlaced}
@@ -97,7 +97,7 @@ function Workbench() {
             />
           </ResizablePanel>
           <ResizableHandle className="w-px bg-border transition-colors hover:bg-primary" />
-          <ResizablePanel defaultSize={23} minSize={16}>
+          <ResizablePanel defaultSize="23" minSize="16">
             <PartsPane
               parts={parts}
               isPublic={isPublic}
