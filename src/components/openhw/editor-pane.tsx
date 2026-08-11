@@ -19,14 +19,14 @@ export function EditorPane({
   logs: string[];
 }) {
   const names = Object.keys(files);
-  const [active, setActive] = useState(names[0]);
+  const [active, setActive] = useState<string>(names[0] ?? "main.cpp");
   const meta = fileMeta[active] ?? { language: "cpp", icon: FileCode2 };
 
   return (
     <div className="flex h-full min-w-0 flex-col bg-panel">
       <div className="flex h-9 shrink-0 items-stretch overflow-x-auto border-b border-border bg-background scroll-slim">
         {names.map((name) => {
-          const Icon = (fileMeta[name] ?? fileMeta["main.cpp"]).icon;
+          const Icon = fileMeta[name]?.icon ?? FileCode2;
           const isActive = name === active;
           return (
             <button
@@ -51,7 +51,7 @@ export function EditorPane({
         <CodeEditor
           key={active}
           language={meta.language}
-          value={files[active]}
+          value={files[active] ?? ""}
           onChange={(next) => onFileChange(active, next)}
         />
       </div>
